@@ -66,7 +66,7 @@ export default function Contact() {
               data-netlify="true"
               onSubmit={() => setSubmitted(true)}
               className="bg-gray-800 p-6 rounded-lg shadow-xl space-y-6 text-left"
-              netlify
+              
             >
               <input type="hidden" name="form-name" value="contact" />
 
