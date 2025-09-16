@@ -10,7 +10,7 @@ export default function Navbar() {
 
 
   const [isOpen, setIsOpen] = useState(false);
-  const { darkMode, setDarkMode } = useTheme();
+  //const { darkMode, setDarkMode } = useTheme();
   const toggleMenu = () => setIsOpen(!isOpen);
 
   
