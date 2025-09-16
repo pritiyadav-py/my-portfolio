@@ -11,8 +11,16 @@ module.exports = {
       "100%": { transform: "translateY(75vh)" },
     },
   },
+  fontFamily: {
+      handwritten: ['"Shadows Into Light"', 'cursive'],
+      quirky: ['"Fredoka"', 'sans-serif'],
+       playful: ['"Comfortaa"', 'cursive'],
+    },
   animation: {
     fall: "fall 2s ease-out forwards",
+  },
+  dropShadow: {
+    glow: "0 0 10px #14b8a6",
   },
 },
   },
