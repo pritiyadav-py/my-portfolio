@@ -16,6 +16,11 @@ module.exports = {
   },
 },
   },
+  fontFamily: {
+  handwritten: ['"Shadows Into Light"', 'cursive'],
+  quirky: ['"Fredoka"', 'sans-serif'],
+},
+
 
 
 
