@@ -16,7 +16,7 @@ function ContactLink({ icon, text, link }) {
       <span>{text}</span>
     </a>
   );
-}g
+}
 
 
 
