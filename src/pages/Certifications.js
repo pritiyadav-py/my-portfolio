@@ -1,97 +1,78 @@
-import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import { motion } from 'framer-motion';
+
+// Updated certificates array from your resume
+const certifications = [
+  {
+    title: "Java Full Stack Developer",
+    platform: "JSpider, Gurugram (Offline)",
+    date: "Jun-Nov 2023",
+  }, // [cite: 51, 55]
+  {
+    title: "Java DSA",
+    platform: "Scaler Academy (Online)",
+    date: "Aug-Oct 2024",
+  }, // [cite: 52, 56]
+  {
+    title: "React.js",
+    platform: "Scaler Academy (Online)",
+    date: "Nov-Dec 2024",
+  }, // [cite: 53, 57]
+  {
+    title: "Machine Learning",
+    platform: "Columbia University (Online)",
+    date: "Aug-Ongoing",
+  }, // [cite: 54, 58]
+  {
+    title: "HackerRank Certifications",
+    platform: "Software Engineer, Python (Basic), SQL (Advanced), C# (Basic)",
+    date: "5 Stars in Java & SQL",
+    link: "https://www.hackerrank.com/profile/pritisunita6643"
+  }, // [cite: 59, 60]
+];
 
 export default function Certifications() {
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-  }, []);
-
-  const certificates = [
-    {
-      title: "Software Engineer ",
-      platform: "Hacker Rank",
-      file: "/certificates/software_engineer_certificate.pdf",
-    },
-    {
-      title: "C# Basic",
-      platform: "Hacker Rank",
-      file: "/certificates/c_sharp_basic_certificate.pdf",
-    },
-    
-    {
-      title: "Python Basics",
-      platform: "Hacker Rank",
-      file: "/certificates/python_basic_certificate.pdf",
-    },
-    {
-      title: "PostgreSQL Essentials",
-      platform: "Hackerrank",
-      file: "/certificates/postgresql.pdf",
-    },
-    {
-      title: "Data Structures in Java",
-      platform: "Coding Ninjas",
-      file: "/certificates/dsa_java.pdf",
-    },
-    {
-      title: "Java Programming",
-      platform: "Coursera",
-      file: "/certificates/java_programming.pdf",
-    },
-    {
-      title: "React Developer Bootcamp",
-      platform: "Udemy",
-      file: "/certificates/react_bootcamp.pdf",
-    },
-    {
-      title: "Spring Boot REST APIs",
-      platform: "Great Learning",
-      file: "/certificates/spring_boot.pdf",
-    },
-    {
-      title: "PostgreSQL Essentials",
-      platform: "Hackerrank",
-      file: "/certificates/postgresql.pdf",
-    },
-    {
-      title: "Data Structures in Java",
-      platform: "Coding Ninjas",
-      file: "/certificates/dsa_java.pdf",
-    },
-  ];
-
   return (
-    <div className="min-h-screen bg-white dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-900 dark:text-white pt-24 px-6 py-10">
-
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+      className="min-h-screen pt-28 px-6 pb-10"
+    >
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-teal-400 mb-10">
-          🎓 My Certifications
+        <h2 className="text-4xl font-bold text-accent mb-12" data-aos="fade-down">
+          🎓 Certifications & Training
         </h2>
-
-        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-          {certificates.map((cert, index) => (
-            <div
+        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {certifications.map((cert, index) => (
+            <motion.div
               key={index}
-              className="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300"
+              className="bg-secondary p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-left flex flex-col justify-between"
               data-aos="zoom-in"
+              data-aos-delay={index * 100}
+              whileHover={{ scale: 1.05 }}
             >
-              <h3 className="text-xl font-semibold text-white mb-2">
-                {cert.title}
-              </h3>
-              <p className="text-sm text-gray-400 mb-4">{cert.platform}</p>
-              <a
-                href={cert.file}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-teal-500 hover:bg-teal-600 text-white text-sm px-4 py-2 rounded-full"
-              >
-                View Certificate
-              </a>
-            </div>
+              <div>
+                <h3 className="text-xl font-semibold text-text mb-1">
+                  {cert.title}
+                </h3>
+                <p className="text-sm text-text/70 mb-2">{cert.platform}</p>
+                <p className="text-xs text-accent font-mono mb-4">{cert.date}</p>
+              </div>
+              {cert.link && (
+                <a
+                  href={cert.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-accent hover:bg-accent/80 text-white text-sm px-4 py-2 rounded-full font-bold transition-transform hover:scale-105 self-start"
+                >
+                  View Profile
+                </a>
+              )}
+            </motion.div>
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
