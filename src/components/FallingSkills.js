@@ -37,6 +37,6 @@ export default function FallingSkills({ skills }) {
           total={skillsToRender.length} 
         />
       ))}
-    </div>
+    </div> 
   );
 }

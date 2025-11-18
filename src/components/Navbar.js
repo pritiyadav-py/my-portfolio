@@ -15,12 +15,24 @@ export default function Navbar() {
 
 
         {/* SVG Name Component */}
+{/* Logo + SVG Name */}
+{/* Logo + Name with shimmer */}
 <motion.div
+  className="flex items-center gap-3"
   initial={{ opacity: 0, y: -20 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.6 }}
 >
-  <Link to="/" className="group">
+  <Link to="/" className="group flex items-center gap-3">
+
+    {/* Your circular logo */}
+    <img
+      src="/logo.png"
+      alt="Logo"
+      className="w-10 h-10 rounded-full"
+    />
+
+    {/* ORIGINAL SHIMMER SVG RESTORED */}
     <svg 
       width="220" 
       height="60" 
@@ -34,7 +46,7 @@ export default function Navbar() {
           <stop offset="50%" stopColor="#ffffff" stopOpacity="1" />
           <stop offset="60%" stopColor="var(--color-accent)" stopOpacity="0.7" />
           <stop offset="100%" stopColor="var(--color-accent)" stopOpacity="0.7" />
-          
+
           <animate 
             attributeName="x1" 
             from="-100%" 
@@ -52,32 +64,37 @@ export default function Navbar() {
         </linearGradient>
       </defs>
 
-      {/* This is now the HOVER state (solid fill) */}
+      {/* HOVER solid text */}
       <text
         x="50%"
         y="50%"
         dy=".35em"
         textAnchor="middle"
-        className="font-cursive-bold text-3xl fill-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        className="font-cursive-bold text-3xl fill-accent opacity-0 
+        group-hover:opacity-100 transition-opacity duration-300"
       >
         Priti Yadav
       </text>
 
-      {/* This is now the DEFAULT state (animated outline) */}
+      {/* DEFAULT shimmering outline */}
       <text
         x="50%"
         y="50%"
         dy=".35em"
         textAnchor="middle"
-        className="font-cursive-bold text-3xl fill-accent opacity-100 group-hover:opacity-0 transition-opacity duration-300"
+        className="font-cursive-bold text-3xl opacity-100 
+        group-hover:opacity-0 transition-opacity duration-300"
         strokeWidth="1"
         stroke="url(#shimmer-gradient)"
+        fill="none"
       >
         Priti Yadav
       </text>
     </svg>
+
   </Link>
 </motion.div>
+
 
 
         {/* Hamburger Icon */}
