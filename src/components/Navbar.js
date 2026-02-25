@@ -164,7 +164,7 @@ function NavLinks({ mobile = false, closeMenu = () => {} }) {
       {/* Container for toggles */}
       <div className={`flex items-center gap-2 ${mobile ? 'flex-col pt-4' : ''}`}>
         <a
-          href="/Priti_Yadav_SDE.pdf"
+          href="/Priti_Yadav_Resume.pdf"
           download
           onClick={handleClick}
           className={`bg-accent hover:bg-accent/80 text-white px-4 py-2 rounded text-sm font-medium transition ${mobile ? 'w-full text-center' : ''}`}
